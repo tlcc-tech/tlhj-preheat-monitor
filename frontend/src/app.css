@@ -1,0 +1,168 @@
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 24px 16px;
+  box-sizing: border-box;
+}
+
+.title {
+  margin: 12px 0 20px;
+  font-weight: 600;
+}
+
+.result {
+  min-height: 20px;
+  line-height: 1.6;
+  margin: 1rem auto;
+  white-space: pre-line;
+  text-align: left;
+}
+
+.log {
+  width: 100%;
+  height: 180px;
+  box-sizing: border-box;
+  resize: none;
+  border: none;
+  border-radius: 6px;
+  padding: 12px;
+  outline: none;
+  background-color: rgba(240, 240, 240, 1);
+  color: #333333;
+  font-family:
+    ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
+    "Courier New", monospace;
+  text-align: left;
+}
+
+.chart-section {
+  margin-top: 16px;
+  text-align: left;
+}
+
+.charts-row {
+  display: flex;
+  gap: 12px;
+  align-items: stretch;
+}
+
+.chart-panel {
+  flex: 1;
+  width: 50%;
+  min-width: 0;
+}
+
+.chart-title {
+  margin: 0 0 8px;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.chart-wrap {
+  width: 100%;
+  height: 280px;
+  background-color: rgba(240, 240, 240, 0.08);
+  border-radius: 6px;
+  padding: 8px;
+  box-sizing: border-box;
+}
+
+.footer {
+  margin-top: 12px;
+  line-height: 1.6;
+  opacity: 0.9;
+  font-size: 14px;
+  text-align: left;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.footer-left {
+  flex: 1;
+  min-width: 260px;
+}
+
+.footer-right {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.footer-qrcode-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.footer-qrcode-label {
+  font-size: 13px;
+  opacity: 0.85;
+}
+
+.footer-img {
+  width: 150px;
+  max-width: 45vw;
+  height: auto;
+  display: block;
+  border-radius: 20px;
+}
+
+.footer-btn {
+  margin-top: 8px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: #6eb5ff;
+  cursor: pointer;
+  text-decoration: underline;
+  font-size: 14px;
+}
+
+.footer-btn:hover {
+  opacity: 0.9;
+}
+
+.input-box .btn {
+  min-width: 96px;
+  height: 30px;
+  line-height: 30px;
+  border-radius: 3px;
+  border: none;
+  margin: 0 0 0 20px;
+  padding: 0 14px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.input-box .btn:hover {
+  background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);
+  color: #333333;
+}
+
+.input-box .btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.input-box .input {
+  border: none;
+  border-radius: 3px;
+  outline: none;
+  height: 30px;
+  line-height: 30px;
+  width: 360px;
+  max-width: 100%;
+  padding: 0 10px;
+  background-color: rgba(240, 240, 240, 1);
+  -webkit-font-smoothing: antialiased;
+}
+
+.input-box .input:hover,
+.input-box .input:focus {
+  background-color: rgba(255, 255, 255, 1);
+}

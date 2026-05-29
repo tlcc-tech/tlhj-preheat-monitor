@@ -1,0 +1,20 @@
+{
+  "$schema": "https://wails.io/schemas/config.v2.json",
+  "name": "新服预约监控",
+  "outputfilename": "tlhj-preheat-monitor",
+  "frontend:install": "npm install",
+  "frontend:build": "npm run build",
+  "frontend:dev:watcher": "npm run dev",
+  "frontend:dev:serverUrl": "auto",
+  "author": {
+    "name": "怀旧天龙CC科技",
+    "email": "rd091019@gmail.com"
+  },
+  "info": {
+    "productName": "新服预约监控",
+    "productVersion": "1.0.0",
+    "companyName": "怀旧天龙CC科技",
+    "copyright": "Copyright © 2026",
+    "comments": "监控新服预约人数，每5分钟记录，整千里程碑微信推送，折线图展示涨幅。"
+  }
+}
