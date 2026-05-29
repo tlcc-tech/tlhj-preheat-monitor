@@ -79,7 +79,7 @@ jobs:
             build/dmg
 
       - name: Upload artifacts
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: ${{ matrix.os }}-build
           path: build/bin/**
@@ -90,7 +90,7 @@ jobs:
     needs: build
     steps:
       - name: Download artifacts
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v7
         with:
           path: dist
 
@@ -101,7 +101,7 @@ jobs:
           find dist -maxdepth 3 -type f | sed -n '1,200p'
 
       - name: Create GitHub Release (tag)
-        uses: softprops/action-gh-release@v2
+        uses: softprops/action-gh-release@v3
         with:
           generate_release_notes: false
           body: |
