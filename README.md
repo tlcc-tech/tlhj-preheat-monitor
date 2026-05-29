@@ -4,6 +4,10 @@
 
 仓库：<https://github.com/tlcc-tech/tlhj-preheat-monitor>
 
+## 界面预览
+
+![新服预约监控](./frontend/public/ScreenShot.png)
+
 ## 环境要求
 
 - Go 1.24+（建议使用 Homebrew 安装）
