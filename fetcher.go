@@ -13,7 +13,7 @@ import (
 
 const (
 	voteInfoURL   = "https://tlhj-activity.changyou.com/tlgl/routineServer/voteInfo?phone=&code="
-	activityReferer = "https://tlhj-activity.changyou.com/tlhj/preheat/20211206/pc/index.shtml"
+	activityReferer = "https://tlhj-activity.changyou.com/tlhj/preheat/20211215/pc/index.shtml"
 )
 
 type voteInfoResponse struct {
@@ -38,7 +38,7 @@ func fetchReserveCount(ctx context.Context, client *http.Client) (int, error) {
 	req.Header.Set("Referer", activityReferer)
 	req.Header.Set("APP", "tlgl")
 	req.Header.Set("ACTIVITY", "routineserver")
-	req.Header.Set("VERSIONCODE", "20211201")
+	req.Header.Set("VERSIONCODE", "20211202")
 	req.Header.Set("PLAT", "phone")
 
 	resp, err := client.Do(req)

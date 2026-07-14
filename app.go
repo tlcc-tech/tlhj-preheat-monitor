@@ -24,6 +24,10 @@ func (a *App) StopMonitoring() {
 	a.monitor.Stop()
 }
 
+func (a *App) ResetData() (bool, error) {
+	return a.monitor.ResetData()
+}
+
 func (a *App) GetStatus() MonitorStatus {
 	return a.monitor.Status()
 }

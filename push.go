@@ -13,7 +13,7 @@ import (
 
 const (
 	xizhiDefaultHost = "xizhi.qqoq.net"
-	activityPageURL  = "https://tlhj-activity.changyou.com/tlhj/preheat/20211206/pc/index.shtml"
+	activityPageURL  = "https://tlhj-activity.changyou.com/tlhj/preheat/20211215/pc/index.shtml"
 )
 
 func buildMilestonePushContent(milestone int, currentCount int) string {

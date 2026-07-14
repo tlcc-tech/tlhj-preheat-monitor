@@ -92,10 +92,10 @@ Release 产物：
 ```bash
 curl -sS \
   -H "User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36" \
-  -H "Referer: https://tlhj-activity.changyou.com/tlhj/preheat/20211206/pc/index.shtml" \
+  -H "Referer: https://tlhj-activity.changyou.com/tlhj/preheat/20211215/pc/index.shtml" \
   -H "APP: tlgl" \
   -H "ACTIVITY: routineserver" \
-  -H "VERSIONCODE: 20211201" \
+  -H "VERSIONCODE: 20211202" \
   -H "PLAT: phone" \
   "https://tlhj-activity.changyou.com/tlgl/routineServer/voteInfo?phone=&code="
 ```

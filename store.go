@@ -127,6 +127,10 @@ func appendHistory(point HistoryPoint) ([]HistoryPoint, error) {
 	return h, nil
 }
 
+func clearHistory() error {
+	return saveHistory([]HistoryPoint{})
+}
+
 func writeJSONAtomic(path string, v any) error {
 	b, err := json.MarshalIndent(v, "", "  ")
 	if err != nil {

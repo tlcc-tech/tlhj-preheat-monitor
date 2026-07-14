@@ -1,6 +1,6 @@
 package main
 
-var AppVersion = "1.0.0"
+var AppVersion = "1.1.0"
 
 const (
 	AppName   = "新服预约监控"

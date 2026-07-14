@@ -19,6 +19,7 @@ import {
   GetHistory,
   GetSettings,
   GetStatus,
+  ResetData,
   StartMonitoring,
   StopMonitoring,
 } from "../wailsjs/go/main/App";
@@ -42,6 +43,7 @@ document.querySelector("#app").innerHTML = `
             <input class="input" id="channelKey" type="text" autocomplete="off" placeholder="微信单点推送链接（例如：https://xizhi.qqoq.net/XZxxxx.send，可选）" />
             <button class="btn" id="startBtn">开始监控</button>
             <button class="btn" id="stopBtn">结束监控</button>
+            <button class="btn" id="resetBtn">重置数据</button>
         </div>
 
         <div class="result" id="status">状态：加载中...</div>
@@ -89,6 +91,7 @@ document.querySelector("#app").innerHTML = `
 const channelKeyEl = document.getElementById("channelKey");
 const startBtn = document.getElementById("startBtn");
 const stopBtn = document.getElementById("stopBtn");
+const resetBtn = document.getElementById("resetBtn");
 const statusEl = document.getElementById("status");
 const logEl = document.getElementById("log");
 const authorEl = document.getElementById("author");
@@ -97,7 +100,7 @@ const getPushLinkBtn = document.getElementById("getPushLinkBtn");
 const pageLink = document.getElementById("pageLink");
 
 const ACTIVITY_URL =
-  "https://tlhj-activity.changyou.com/tlhj/preheat/20211206/pc/index.shtml";
+  "https://tlhj-activity.changyou.com/tlhj/preheat/20211215/pc/index.shtml";
 
 const MAX_LOG_LINES = 2000;
 const logLines = [];
@@ -350,6 +353,17 @@ startBtn.addEventListener("click", async () => {
 stopBtn.addEventListener("click", async () => {
   try {
     StopMonitoring();
+    await refreshStatus();
+  } catch (e) {
+    appendLog(String(e));
+  }
+});
+
+resetBtn.addEventListener("click", async () => {
+  try {
+    const didReset = await ResetData();
+    if (!didReset) return;
+    loadHistoryToChart([]);
     await refreshStatus();
   } catch (e) {
     appendLog(String(e));

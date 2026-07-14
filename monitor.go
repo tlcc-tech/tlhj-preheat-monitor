@@ -198,6 +198,55 @@ func (m *Monitor) Stop() {
 	}
 }
 
+// ResetData clears local history and milestone baseline so recording starts fresh.
+// Returns true when data was reset, false when the user cancelled.
+func (m *Monitor) ResetData() (bool, error) {
+	m.mu.Lock()
+	appCtx := m.appCtx
+	m.mu.Unlock()
+
+	if appCtx != nil {
+		sel, err := runtime.MessageDialog(appCtx, runtime.MessageDialogOptions{
+			Type:          runtime.QuestionDialog,
+			Title:         "重置数据",
+			Message:       "确定重置数据？将清空本地历史记录与里程碑，并重新开始记录。",
+			Buttons:       []string{"重置", "取消"},
+			DefaultButton: "取消",
+			CancelButton:  "取消",
+		})
+		if err != nil {
+			return false, err
+		}
+		// macOS/Windows may return custom labels or Yes/No depending on runtime.
+		if sel != "重置" && sel != "Yes" && sel != "OK" && sel != "Ok" {
+			return false, nil
+		}
+	}
+
+	if err := clearHistory(); err != nil {
+		return false, err
+	}
+
+	m.mu.Lock()
+	m.history = []HistoryPoint{}
+	m.lastCount = 0
+	m.lastChecked = time.Time{}
+	m.lastError = ""
+	m.lastMilestone = 0
+	channelKey := m.channelKey
+	m.mu.Unlock()
+
+	if err := saveSettings(persistedSettings{
+		ChannelKey:    channelKey,
+		LastMilestone: 0,
+	}); err != nil {
+		return false, err
+	}
+
+	m.emitLog(appCtx, "INFO", "已重置历史记录与里程碑，将重新开始记录")
+	return true, nil
+}
+
 func (m *Monitor) getLastMilestone() int {
 	m.mu.Lock()
 	defer m.mu.Unlock()
